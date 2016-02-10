@@ -1,0 +1,11 @@
+$prefixes: webkit moz ms o;
+
+@mixin prefixed($property, $value, $include-no-prefix: true){
+	@each $prefix in $prefixes {
+		-#{$prefix}-#{$property}: #{$value};
+	}
+
+	@if $include-no-prefix {
+		#{$property}: #{$value};
+	}
+}
